@@ -1,0 +1,25 @@
+.header_style {
+ background: url(images/orange-gradient.png) repeat-x; 
+ height: 200px; 
+}
+
+.upper-buttons {
+ font-weight: 700;
+ font-size: 40px;
+ color: rgb(255, 255, 255);
+ margin-top: 130px;
+ margin-left: 1px;
+ padding: 0px 25px;
+ border: none;
+ background-color: rgba(255, 255, 255, 0);
+ text-decoration: none;
+}
+.upper-buttons:hover { background: rgba(0, 0, 0, 0.404); } /* при наведении курсора мышки */
+a.upper-buttons:active { background: rgba(152, 15, 0, 0); }
+
+.profile-button {
+ background-image: url("images/logo.png");
+ margin-top: 50px;
+ margin-left: 0px;
+ padding: 50px;
+}
