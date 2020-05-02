@@ -6,6 +6,7 @@
 .footer_style {
     background: url(../images/orange-gradient.png) repeat-x; 
     height: 200px;
+    margin-top: 0px;
    }
 
 .upper-buttons {
@@ -44,8 +45,21 @@ a:active { background: rgba(0, 0, 0, 0); }
     margin-left: 40px;
 }
 
+#copyright {
+    font-size: 18px;
+    color: rgba(158, 158, 158, 0.699);
+    float: right;
+    margin-top: -35px;
+    margin-right: 25px;
+}
+
 p {
     color: rgb(255, 255, 255);
     font-size: 20px;
     margin-left: 20px;
+}
+
+.container {
+    margin-bottom: 0px;
+    background: grey url(../images/back.png);
 }
