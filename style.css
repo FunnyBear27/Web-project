@@ -1,25 +1,51 @@
 .header_style {
  background: url(images/orange-gradient.png) repeat-x; 
- height: 200px; 
+ height: 150px; 
 }
+
+.footer_style {
+    background: url(images/orange-gradient.png) repeat-x; 
+    height: 150px;
+   }
 
 .upper-buttons {
  font-weight: 700;
  font-size: 40px;
  color: rgb(255, 255, 255);
- margin-top: 130px;
- margin-left: 1px;
- padding: 0px 25px;
+ margin-top: 50px;
+ text-decoration: none;
+ margin-left: 5px;
+ padding: 20px 3px;
  border: none;
  background-color: rgba(255, 255, 255, 0);
  text-decoration: none;
 }
-.upper-buttons:hover { background: rgba(0, 0, 0, 0.404); } /* при наведении курсора мышки */
-a.upper-buttons:active { background: rgba(152, 15, 0, 0); }
+.upper-buttons:hover { color: rgb(255, 119, 65); } /* при наведении курсора мышки */
+.upper-buttons:active { background: rgba(0, 0, 0, 0.384); }
 
 .profile-button {
- background-image: url("images/logo.png");
+ background-color: rgba(255, 145, 81, 0.87);
+ color: rgb(255, 255, 255);
+ font-size: 40px;
  margin-top: 50px;
  margin-left: 0px;
- padding: 50px;
+ padding: 20px;
 }
+
+.links{
+    font-weight: 700;
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+    margin-top: 50px;
+    text-decoration: none;
+    margin-left: 2px;
+    padding: 20px 19px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    text-decoration: none;
+}
+.links:hover { color: rgb(255, 119, 65); }
+
+a:active { background: rgba(0, 0, 0, 0); }
+
+p {color: rgb(255, 255, 255)}

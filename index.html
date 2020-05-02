@@ -8,15 +8,23 @@
  <body>
   <header>
       <div class='header_style'>
-        <button type="button" class="upper-buttons">астрология</button>
-        <button type="button" class="upper-buttons">гороскоп</button>
-        <button type="button" class="upper-buttons">аура</button>
-        <button type="button" class="profile-button"></button>
-        <button type="button" class="upper-buttons">чай</button>
-        <button type="button" class="upper-buttons">нумерология</button>
-        <button type="button" class="upper-buttons">сонник</button>
+        <button type="button" class="upper-buttons"><a href="https://www.google.ru" class="links">астрология</a></button>
+        <button type="button" class="upper-buttons"><a href="https://www.google.ru" class="links">гороскоп</a></button>
+        <button type="button" class="upper-buttons"><a href="https://www.google.ru" class="links">аура</a></button>
+        <button type="button" class="profile-button"><a href="https://www.google.ru" class="links">Я</a></button>
+        <button type="button" class="upper-buttons"><a href="https://www.google.ru" class="links">чай</a></button>
+        <button type="button" class="upper-buttons"><a href="https://www.google.ru" class="links">нумерология</a></button>
+        <button type="button" class="upper-buttons"><a href="https://www.google.ru" class="links">сонник</a></button>
       </div>
    </header>
-   
+   <main role="main" class="container">
+     {% block content %}{% endblock %}
+   </main>
+  <footer>
+    <div class='footer_style'>
+      <p>Copyright</p>
+    </div>
+  </footer>
+
  </body>
 </html>
