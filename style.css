@@ -5,7 +5,7 @@
 
 .footer_style {
     background: url(images/orange-gradient.png) repeat-x; 
-    height: 150px;
+    height: 200px;
    }
 
 .upper-buttons {
@@ -15,22 +15,14 @@
  margin-top: 50px;
  text-decoration: none;
  margin-left: 5px;
- padding: 20px 3px;
+ padding: 20px 5px;
  border: none;
  background-color: rgba(255, 255, 255, 0);
  text-decoration: none;
 }
+
 .upper-buttons:hover { color: rgb(255, 119, 65); } /* при наведении курсора мышки */
 .upper-buttons:active { background: rgba(0, 0, 0, 0.384); }
-
-.profile-button {
- background-color: rgba(255, 145, 81, 0.87);
- color: rgb(255, 255, 255);
- font-size: 40px;
- margin-top: 50px;
- margin-left: 0px;
- padding: 20px;
-}
 
 .links{
     font-weight: 700;
@@ -48,4 +40,12 @@
 
 a:active { background: rgba(0, 0, 0, 0); }
 
-p {color: rgb(255, 255, 255)}
+#social {
+    margin-left: 40px;
+}
+
+p {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    margin-left: 20px;
+}
