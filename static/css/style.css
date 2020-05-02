@@ -1,10 +1,10 @@
 .header_style {
- background: url(images/orange-gradient.png) repeat-x; 
+ background: url(../images/orange-gradient.png) repeat-x; 
  height: 150px; 
 }
 
 .footer_style {
-    background: url(images/orange-gradient.png) repeat-x; 
+    background: url(../images/orange-gradient.png) repeat-x; 
     height: 200px;
    }
 
