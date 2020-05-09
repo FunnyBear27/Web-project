@@ -1,6 +1,8 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 from flask_login import LoginManager, login_user, current_user, login_required, logout_user
 from data.register import LoginForm
+from data import db_session
+from data.users import User
 
 app = Flask(__name__)
 login_manager = LoginManager()
@@ -8,7 +10,7 @@ login_manager.init_app(app)
 
 
 def main():
-    db_session.global_init('')
+    db_session.global_init('db/blogs.sqlite')
 
     @app.route('/')
     @app.route('/profile')
