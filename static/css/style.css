@@ -5,6 +5,9 @@
 }
  
 body {
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
     background: url(../images/gjc.png) repeat; 
 }
 
@@ -23,6 +26,21 @@ body {
     #horo {
         border-spacing: 220px 40px;
     }
+
+    #colours {
+        border-spacing: 220px 40px;
+    }
+
+    #copyright {
+        color: rgb(104, 104, 104); 
+        font-size: 20px;
+        margin-top: -50px;
+        margin-left: 1700px;
+    }
+
+    .info {
+        font-size: 40px;
+    }
 }
 
 @media only screen and (max-width: 1440px) {
@@ -38,6 +56,21 @@ body {
     #horo {
         border-spacing: 125px 30px;
     }
+
+    #colours {
+        border-spacing: 125px 30px;
+    }
+
+    #copyright {
+        color: rgb(104, 104, 104); 
+        font-size: 20px;
+        margin-top: -50px;
+        margin-left: 1300px;
+    }
+
+    .info {
+        font-size: 30px;
+    }
 }
 
 .footer_style {
@@ -47,6 +80,24 @@ body {
    }
 
 .upper-buttons:active { background: rgba(0, 0, 0, 0.384); }
+
+#back { 
+    background: rgba(0, 0, 0, 0.384);
+    margin-top: 0px;
+}
+
+.back {
+    font-weight: 500;
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin-left: 2px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    text-decoration: none;
+}
+
+.back:hover { color: rgb(255, 119, 65); }
 
 .links{
     font-weight: 700;
@@ -62,7 +113,8 @@ body {
 
 .WhiteText {
     color: rgb(255, 255, 255);
-    -moz-text-decoration-style: solid;
+    font-size: 50px;
+    text-decoration: underline;
 }
 
 a:active { background: rgba(0, 0, 0, 0); }
@@ -73,134 +125,145 @@ a:active { background: rgba(0, 0, 0, 0); }
 
 p {
     color: rgb(255, 255, 255);
-    font-size: 20px;
+    font-size: 30px;
     margin-left: 20px;
-}
-
-#copyright {
-    color: rgb(255, 255, 255); 
-    margin-top: -50px;
-    margin-left: 1300px;
+    margin-top: 0px;
 }
 
 #red-aura {
-    font-weight: 700;
-    font-size: 40px;
+    font-weight: 400;
+    font-size: 30px;
     color: wheat;
     text-decoration: none;
-    padding: 20px;
+    padding: 10px;
 
 }
 #red-aura:hover{
     color: rgba(168, 0, 0, 0.815);
+    text-decoration: underline;
 }
 
 #yellow-aura {
-    font-weight: 700;
-    font-size: 40px;
+    font-weight: 400;
+    font-size: 30px;
     color: wheat;
     text-decoration: none;
-    padding: 20px;
+    padding: 10px;
 }
 #yellow-aura:hover{
     color: rgba(228, 205, 0, 0.808);
+    text-decoration: underline;
 }
 
 #orange-aura {
-    font-weight: 700;
-    font-size: 40px;
+    font-weight: 400;
+    font-size: 30px;
     color: wheat;
     text-decoration: none;
-    padding: 20px;
+    padding: 10px;
 }
 #orange-aura:hover{
     color: rgb(226, 121, 0);
+    text-decoration: underline;
 }
 
 #green-aura {
-    font-weight: 700;
-    font-size: 40px;
+    font-weight: 400;
+    font-size: 30px;
     color: wheat;
     text-decoration: none;
-    padding: 20px;
+    padding: 10px;
 }
 #green-aura:hover{
     color: rgb(28, 155, 2);
+    text-decoration: underline;
 }
 
 #light-blue-aura {
-    font-weight: 700;
-    font-size: 40px;
+    font-weight: 400;
+    font-size: 30px;
     color: wheat;
     text-decoration: none;
-    padding: 20px;
+    padding: 10px;
 }
 #light-blue-aura:hover{
     color: rgb(0, 148, 168);
+    text-decoration: underline;
 }
 
 #blue-aura {
-    font-weight: 700;
-    font-size: 40px;
+    font-weight: 400;
+    font-size: 30px;
     color: wheat;
     text-decoration: none;
-    padding: 20px;
+    padding: 10px;
 }
 #blue-aura:hover{
     color: rgb(0, 39, 168);
+    text-decoration: underline;
 }
 
 #violet-aura {
-    font-weight: 700;
-    font-size: 40px;
+    font-weight: 400;
+    font-size: 30px;
     color: wheat;
     text-decoration: none;
-    padding: 20px;
+    padding: 10px;
 }
 #violet-aura:hover{
     color: rgb(59, 0, 168);
+    text-decoration: underline;
 }
 
 #pink-aura {
-    font-weight: 700;
-    font-size: 40px;
+    font-weight: 400;
+    font-size: 30px;
     color: wheat;
     text-decoration: none;
-    padding: 20px;
+    padding: 10px;
 }
 #pink-aura:hover{
     color: rgb(173, 15, 147);
+    text-decoration: underline;
 }
 
 #bronze-aura {
-    font-weight: 700;
-    font-size: 40px;
+    font-weight: 400;
+    font-size: 30px;
     color: wheat;
     text-decoration: none;
-    padding: 20px;
+    padding: 10px;
 }
 #bronze-aura:hover{
     color: rgb(133, 75, 21);
+    text-decoration: underline;
 }
 
 #silver-aura {
-    font-weight: 700;
-    font-size: 40px;
+    font-weight: 400;
+    font-size: 30px;
     color: wheat;
     text-decoration: none;
-    padding: 20px;
+    padding: 10px;
 }
 #silver-aura:hover{
     color: rgb(190, 186, 206);
+    text-decoration: underline;
 }
 
 #golden-aura {
-    font-weight: 700;
-    font-size: 40px;
+    font-weight: 400;
+    font-size: 30px;
     color: wheat;
     text-decoration: none;
-    padding: 20px;
+    padding: 10px;
 }
 #golden-aura:hover{
     color: rgb(255, 230, 0);
+    text-decoration: underline;
+}
+
+#hor {
+    margin-top: 0px;
+    background-color: rgba(0, 0, 0, 0.527);
 }
