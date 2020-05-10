@@ -1,0 +1,206 @@
+.header_style {
+ background: url(../images/orange-gradient.png) repeat-x; 
+ height: 100px; 
+ text-align: justify;
+}
+ 
+body {
+    background: url(../images/gjc.png) repeat; 
+}
+
+
+@media only screen and (max-width: 1921px) {
+    .upper-buttons {
+        font-weight: 700;
+        font-size: 40px;
+        margin-top: 20px;
+        margin-left: 6%;
+        border: none;
+        padding: 2px;
+        background-color: rgba(255, 255, 255, 0);
+    }
+
+    #horo {
+        border-spacing: 220px 40px;
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+    .upper-buttons {
+        font-weight: 700;
+        font-size: 40px;
+        margin-top: 1%;
+        margin-left: 4%;
+        border: none;
+        padding: 2px;
+        background-color: rgba(255, 255, 255, 0);
+    }
+    #horo {
+        border-spacing: 125px 30px;
+    }
+}
+
+.footer_style {
+    background: url(../images/orange-gradient.png) repeat-x; 
+    height: 200px;
+    margin-bottom: 0px;
+   }
+
+.upper-buttons:active { background: rgba(0, 0, 0, 0.384); }
+
+.links{
+    font-weight: 700;
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin-left: 2px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    text-decoration: none;
+}
+.links:hover { color: rgb(255, 119, 65); }
+
+.WhiteText {
+    color: rgb(255, 255, 255);
+    -moz-text-decoration-style: solid;
+}
+
+a:active { background: rgba(0, 0, 0, 0); }
+
+#social {
+    margin-left: 40px;
+}
+
+p {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+#copyright {
+    color: rgb(255, 255, 255); 
+    margin-top: -50px;
+    margin-left: 1300px;
+}
+
+#red-aura {
+    font-weight: 700;
+    font-size: 40px;
+    color: wheat;
+    text-decoration: none;
+    padding: 20px;
+
+}
+#red-aura:hover{
+    color: rgba(168, 0, 0, 0.815);
+}
+
+#yellow-aura {
+    font-weight: 700;
+    font-size: 40px;
+    color: wheat;
+    text-decoration: none;
+    padding: 20px;
+}
+#yellow-aura:hover{
+    color: rgba(228, 205, 0, 0.808);
+}
+
+#orange-aura {
+    font-weight: 700;
+    font-size: 40px;
+    color: wheat;
+    text-decoration: none;
+    padding: 20px;
+}
+#orange-aura:hover{
+    color: rgb(226, 121, 0);
+}
+
+#green-aura {
+    font-weight: 700;
+    font-size: 40px;
+    color: wheat;
+    text-decoration: none;
+    padding: 20px;
+}
+#green-aura:hover{
+    color: rgb(28, 155, 2);
+}
+
+#light-blue-aura {
+    font-weight: 700;
+    font-size: 40px;
+    color: wheat;
+    text-decoration: none;
+    padding: 20px;
+}
+#light-blue-aura:hover{
+    color: rgb(0, 148, 168);
+}
+
+#blue-aura {
+    font-weight: 700;
+    font-size: 40px;
+    color: wheat;
+    text-decoration: none;
+    padding: 20px;
+}
+#blue-aura:hover{
+    color: rgb(0, 39, 168);
+}
+
+#violet-aura {
+    font-weight: 700;
+    font-size: 40px;
+    color: wheat;
+    text-decoration: none;
+    padding: 20px;
+}
+#violet-aura:hover{
+    color: rgb(59, 0, 168);
+}
+
+#pink-aura {
+    font-weight: 700;
+    font-size: 40px;
+    color: wheat;
+    text-decoration: none;
+    padding: 20px;
+}
+#pink-aura:hover{
+    color: rgb(173, 15, 147);
+}
+
+#bronze-aura {
+    font-weight: 700;
+    font-size: 40px;
+    color: wheat;
+    text-decoration: none;
+    padding: 20px;
+}
+#bronze-aura:hover{
+    color: rgb(133, 75, 21);
+}
+
+#silver-aura {
+    font-weight: 700;
+    font-size: 40px;
+    color: wheat;
+    text-decoration: none;
+    padding: 20px;
+}
+#silver-aura:hover{
+    color: rgb(190, 186, 206);
+}
+
+#golden-aura {
+    font-weight: 700;
+    font-size: 40px;
+    color: wheat;
+    text-decoration: none;
+    padding: 20px;
+}
+#golden-aura:hover{
+    color: rgb(255, 230, 0);
+}

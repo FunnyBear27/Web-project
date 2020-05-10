@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <title>WP</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+ </head>
+ <body>
+  <header>
+      <div class='header_style'>
+        <button type="button" class="upper-buttons"><a href="https://www.google.ru" class="links">масла</a></button>
+        <button type="button" class="upper-buttons"><a href="https://www.google.ru" class="links">гороскоп</a></button>
+        <button type="button" class="upper-buttons"><a href="https://www.google.ru" class="links">аура</a></button>
+        <a href="https://www.google.ru" class='upper-buttons'><img src="../static/images/avatar.png" height="75" width="75"></a>
+        <button type="button" class="upper-buttons"><a href="https://www.google.ru" class="links">чай</a></button>
+        <button type="button" class="upper-buttons"><a href="https://www.google.ru" class="links">нумерология</a></button>
+        <button type="button" class="upper-buttons"><a href="https://www.google.ru" class="links">сонник</a></button>
+      </div>
+   </header>
+   <main role="main" class="container">
+    <h1>Авторизация</h1>
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.username.label }}<br>
+        {{ form.username(class="form-control") }}<br>
+        {% for error in form.username.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p>
+        {{ form.password.label }}<br>
+        {{ form.password(class="form-control", type="password") }}<br>
+        {% for error in form.password.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+</form>
+  </main>
+  <footer>
+    <div class='footer_style'>
+      <p id="social">Мы в социальных сетях</p>
+      <table>
+        <tr>
+          <td align="center"><p>Шатаева Вероника</p></td>
+          <td width="62"><a href="https://vk.com/nikashat" class='lower-buttons'><img src="../static/images/vk.png" height="60" width="60"></a></td>
+          <td width="62"><a href="https://www.instagram.com/_nikashat_/?hl=ru" class='lower-buttons'><img src="../static/images/insta.png" height="60" width="60"></a></td>
+        </tr>
+        <tr>
+          <td align="center"><p>Закиров Руслан</p></td>
+          <td width="62"><a href="https://vk.com/insearchofhappyness" class='lower-buttons'><img src="../static/images/vk.png" height="60" width="60"></a></td>
+          <td width="62"><a href="https://www.instagram.com/ice_rus_cream/?hl=ru" class='lower-buttons'><img src="../static/images/insta.png" height="60" width="60"></a></td>
+        </tr>
+      </table>
+    </div>
+    <p id="copyright">©WebProject</p>
+  </footer>
+
+ </body>
+</html>
