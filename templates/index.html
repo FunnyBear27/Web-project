@@ -16,9 +16,16 @@
         <button type="button" class="upper-buttons"><a href="https://www.google.ru" class="links">нумерология</a></button>
         <button type="button" class="upper-buttons"><a href="https://www.google.ru" class="links">сонник</a></button>
       </div>
+    <div id="hor" align="center"><p>Профиль недоступен</p></div>
    </header>
    <main role="main" class="container">
-     {% block content %}{% endblock %}
+     <p class="info" align="center">Для того, чтобы зайти на эту страницу необходимо авторизоваться</p>
+     <table align="center">
+       <tr>
+         <td><button type="button" class="auth-button"><a href="/register" class="auth">Регистрация</a></button></td>
+         <td><button type="button" class="auth-button"><a href="/login" class="auth">Вход</a></button></td>
+       </tr>
+     </table>
    </main>
   <footer>
     <div class='footer_style'>

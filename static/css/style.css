@@ -1,9 +1,77 @@
 .header_style {
- background: url(../images/orange-gradient.png) repeat-x; 
- height: 100px; 
- text-align: justify;
+    background: url(../images/orange-gradient.png) repeat-x; 
+    height: 100px; 
+    text-align: justify;
 }
- 
+
+.footer_style {
+    background: url(../images/orange-gradient.png) repeat-x; 
+    height: 200px;
+    margin-top: 0px;
+    margin-top: initial;
+}
+
+.formm {
+    color: lawngreen;
+}
+
+.back {
+    font-weight: 500;
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin-left: 2px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    text-decoration: none;
+}
+
+.back:hover { color: rgb(255, 119, 65); }
+
+.links{
+    font-weight: 700;
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin-left: 2px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    text-decoration: none;
+}
+
+.links:hover { color: rgb(255, 119, 65); }
+
+.WhiteText {
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+    text-decoration: underline;
+}
+
+.upper-buttons:active { background: rgba(0, 0, 0, 0.384); }
+
+.auth-button {
+    border-radius: 10px;
+    padding: 20px 48px;
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(0, 0, 0);
+    border: 3px solid rgb(255, 119, 65);
+}
+
+.auth-button:hover {
+    background-color: rgb(255, 119, 65);
+}
+
+.auth {
+    font-weight: 700;
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin-left: 2px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    text-decoration: none;
+}
+
 body {
     margin-top: 0px;
     margin-left: 0px;
@@ -11,6 +79,14 @@ body {
     background: url(../images/gjc.png) repeat; 
 }
 
+p {
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    margin-left: 20px;
+    margin-top: 0px;
+}
+
+a:active { background: rgba(0, 0, 0, 0); }
 
 @media only screen and (max-width: 1921px) {
     .upper-buttons {
@@ -73,61 +149,19 @@ body {
     }
 }
 
-.footer_style {
-    background: url(../images/orange-gradient.png) repeat-x; 
-    height: 200px;
-    margin-bottom: 0px;
-   }
-
-.upper-buttons:active { background: rgba(0, 0, 0, 0.384); }
 
 #back { 
     background: rgba(0, 0, 0, 0.384);
     margin-top: 0px;
 }
 
-.back {
-    font-weight: 500;
-    font-size: 30px;
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    margin-left: 2px;
-    border: none;
-    background-color: rgba(255, 255, 255, 0);
-    text-decoration: none;
+#hor {
+    margin-top: 0px;
+    background-color: rgba(0, 0, 0, 0.527);
 }
-
-.back:hover { color: rgb(255, 119, 65); }
-
-.links{
-    font-weight: 700;
-    font-size: 40px;
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    margin-left: 2px;
-    border: none;
-    background-color: rgba(255, 255, 255, 0);
-    text-decoration: none;
-}
-.links:hover { color: rgb(255, 119, 65); }
-
-.WhiteText {
-    color: rgb(255, 255, 255);
-    font-size: 50px;
-    text-decoration: underline;
-}
-
-a:active { background: rgba(0, 0, 0, 0); }
 
 #social {
     margin-left: 40px;
-}
-
-p {
-    color: rgb(255, 255, 255);
-    font-size: 30px;
-    margin-left: 20px;
-    margin-top: 0px;
 }
 
 #red-aura {
@@ -261,9 +295,4 @@ p {
 #golden-aura:hover{
     color: rgb(255, 230, 0);
     text-decoration: underline;
-}
-
-#hor {
-    margin-top: 0px;
-    background-color: rgba(0, 0, 0, 0.527);
 }
