@@ -16,8 +16,10 @@
       </div>
    </header>
    <main role="main" class="container">
+    {% if current_user.is_authenticated %}
      <h1 class="WhiteText">Характеристика цвета вашей ауры</h1>
      <p class="info">{{ aura_info }}</p>
+    {% endif %}
      <div id="OtherColours">
       <table id=#colours>
         <tr>
