@@ -54,9 +54,9 @@ def numero():
     else:
         return render_template('number.html')
 
-@app.route('/dreams')
-def dreams():
-    return render_template('aura.html')
+@app.route('/oven')
+def oven():
+    return render_template('sign.html', sign_info="smth") #Вместо smth предсказание
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -78,20 +78,36 @@ def login():
         return render_template('author.html')
 
 
-# @app.route('/register', methods=['GET', 'POST'])
-# def login():
-#     if request.method == 'POST':  # this block is only entered when the form is submitted
-#         email = request.form.get('email')
-#         password = request.form.get('password')
-#         remember_me = request.form.get('remember_me')
-#         # session = db_session.create_session()
-#         # user = session.query(User).filter(User.email == email).first()
-#         # if user and user.check_password(password):
-#             # login_user(user, remember=form.remember_me.data)
-#         return redirect("/")
-#
-#     else:
-#         return render_template('register.html')
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
+        password_repeat = request.form.get('password_repeat')
+        name = request.form.get('name')
+        birth_day = request.form.get('day')
+        birth_month = request.form.get('month')
+        birth_year = request.form.get('year')
+        if password != password_repeat:
+            return render_template('register.html', title='Регистрация',
+                                   error="Пароли не совпадают")
+        session = db_session.create_session()
+        if session.query(User).filter(User.email == email).first():
+            return render_template('register.html', title='Регистрация',
+                                   error="Такой пользователь уже есть")
+        user = User(
+            name=name,
+            email=email,
+            birthday=(birth_day, birth_month, birth_year),
+            aura=finding_aura(form.birthday.data),
+            zodiac=finding_zodiac(day=birth_day, month=birth_month, year=birth_year)
+        )
+        user.set_password(password)
+        session.add(user)
+        session.commit()
+        return redirect('/')
+    else:
+        return render_template('register.html')
 
 
 if __name__ == '__main__':
