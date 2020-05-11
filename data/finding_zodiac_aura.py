@@ -33,7 +33,7 @@ zodiac = {'Овен': {'start': (3, 21), 'end': (4, 20)},
 
 
 def finding_zodiac(month, day):
-    tuple_date = (month, day)
+    tuple_date = (int(month), int(day))
     zod = 0
     for key, val in zodiac.items():
         if val['start'] <= tuple_date <= val['end']:
