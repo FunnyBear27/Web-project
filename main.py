@@ -136,7 +136,7 @@ def aura():
         return render_template('aura.html',
                                aura_info=(cur.execute(f"""SELECT info
                                                           FROM aura_text
-                                                          WHERE color = {current_user.aura}""").fetchall())[0][0])
+                                                          WHERE color = '{current_user.aura}'""").fetchall())[0][0])
     else:
         return render_template('aura.html',
                                aura_info='Вы не авторизованы, поэтому выберите цвет вручную')
