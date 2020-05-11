@@ -4,28 +4,71 @@
   <meta charset="utf-8" />
   <title>WP</title>
   <link rel="stylesheet" href="../static/css/style.css">
+  <style>
+    #leftSidebar {
+    background-color: rgba(221, 221, 221, 0);
+    float: left;
+    width: 500px;
+    margin-bottom: 0px;
+    height: 250px;
+    border: 2px solid rgb(255, 119, 65);
+
+}
+
+#tea {
+    background-color: rgba(221, 221, 221, 0);
+    float: left;
+    width: 500px;
+    margin-left: 0px;
+    height: 40px;
+    border: 2px solid rgb(255, 119, 65);
+}
+
+#main{
+    background-color: rgba(238, 238, 238, 0);
+    height: 305px;
+    margin-left: 520px;
+    margin-right: 2px;
+    border: 2px solid rgb(255, 119, 65);
+    word-wrap: break-word;
+}
+
+  </style>
  </head>
  <body>
   <header>
       <div class='header_style'>
-        <button type="button" class="upper-buttons"><a href="https://www.google.ru" class="links">масла</a></button>
-        <button type="button" class="upper-buttons"><a href="https://www.google.ru" class="links">гороскоп</a></button>
-        <button type="button" class="upper-buttons"><a href="https://www.google.ru" class="links">аура</a></button>
-        <a href="https://www.google.ru" class='upper-buttons'><img src="../static/images/avatar.png" height="75" width="75"></a>
-        <button type="button" class="upper-buttons"><a href="https://www.google.ru" class="links">чай</a></button>
-        <button type="button" class="upper-buttons"><a href="https://www.google.ru" class="links">нумерология</a></button>
-        <button type="button" class="upper-buttons"><a href="https://www.google.ru" class="links">сонник</a></button>
+        <button type="button" class="upper-buttons"><a href="/oils" class="links">масла</a></button>
+        <button type="button" class="upper-buttons"><a href="/horoscope" class="links">гороскоп</a></button>
+        <button type="button" class="upper-buttons"><a href="/aura" class="links">аура</a></button>
+        <a href="/profile" class='upper-buttons'><img src="../static/images/avatar.png" height="75" width="75"></a>
+        <button type="button" class="upper-buttons"><a href="/tea" class="links">чай</a></button>
+        <button type="button" class="upper-buttons"><a href="/numero" class="links">нумерология</a></button>
+        <button type="button" class="upper-buttons"><a href="/dreams" class="links">сонник</a></button>
       </div>
-    <div id="hor" align="center"><p>Профиль недоступен</p></div>
+    {% if current_user.is_authenticated %}  
+        <div id="hor" align="center"><p>Профиль недоступен</p></div>
+    {% endif %}
    </header>
    <main role="main" class="container">
-     <p class="info" align="center">Для того, чтобы зайти на эту страницу необходимо авторизоваться</p>
-     <table align="center">
-       <tr>
-         <td><button type="button" class="auth-button"><a href="/register" class="auth">Регистрация</a></button></td>
-         <td><button type="button" class="auth-button"><a href="/login" class="auth">Вход</a></button></td>
-       </tr>
-     </table>
+    {% if current_user.is_authenticated %}
+        <p class="info" align="center">Для того, чтобы зайти на эту страницу необходимо авторизоваться</p>
+         <table align="center">
+          <tr>
+            <td><button type="button" class="auth-button"><a href="/register" class="auth">Регистрация</a></button></td>
+            <td><button type="button" class="auth-button"><a href="/login" class="auth">Вход</a></button></td>
+         </tr>
+        </table>
+    {% else %}
+      <div id="leftSidebar">
+        <p>Почта: {{ mail }}</p>
+        <p>Дата рождения: {{ birth_date }}</p>
+        <p>Цвет ауры: {{ Aura_color }}</p>
+        <p>Знак зодиака: {{ zodiak_sign }}</p>
+      <div id="tea"><p>Чай вашего дня: {{ day_tea }}</p></div>
+      </div>
+      <div id="main"><p class="info">kdfvksdbnfnlgblnkfbklnlknklkknnklnlknlknlnlnknknlknlknklnklnknnlkjbsdfpvjandf;bspdofnbpodfnbpsjdnfbksndckbsk</p></div>
+    {% endif %}
    </main>
   <footer>
     <div class='footer_style'>

@@ -4,6 +4,35 @@
   <meta charset="utf-8" />
   <title>WP</title>
   <link rel="stylesheet" href="../static/css/style.css">
+  <style>
+
+input[type=submit] {
+  padding:10px 30px; 
+  background:rgba(104, 104, 104, 0);
+  border: 3px solid rgb(255, 119, 65);
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; 
+  font-size: 30px;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+input[type=submit]:active {
+  background-color: rgb(255, 119, 65);
+}
+    .inp {
+  border: 3px solid rgb(255, 119, 65);
+  border-radius: 10px;
+  height: 50px; 
+  width: auto; 
+  color: #352828; 
+  font-size: 30px; 
+  margin-bottom: 50px;
+}
+
+  </style>
  </head>
  <body>
   <header>
@@ -18,7 +47,23 @@
       </div>
    </header>
    <main role="main" class="container">
-
+    <form action="" method="POST" align="center">
+      <table align="center">
+        <tr>
+          <td>
+            <input type="text" name="day" class="inp" placeholder="Введите день рождения"><br>
+          </td>
+          <td>
+            <input type="text" name="month" class="inp" placeholder="Введите месяц рождения"><br>
+          </td>
+          <td>
+            <input type="text" name="year" class="inp" placeholder="Введите год рождения"><br>
+          </td>
+      </tr>
+      </table>
+      <p class="errors" align="center">{{ error }}</p>
+      <input type="submit" value="Ввод" align="center"><br>
+      <p class="info"> {{ information }} </p>
    </main>
   <footer>
     <div class='footer_style'>

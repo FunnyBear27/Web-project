@@ -7,12 +7,15 @@
 .footer_style {
     background: url(../images/orange-gradient.png) repeat-x; 
     height: 200px;
-    margin-top: 0px;
     margin-top: initial;
 }
 
 .formm {
     color: lawngreen;
+}
+
+.errors {
+    color: red;
 }
 
 .back {
@@ -86,6 +89,11 @@ p {
     margin-top: 0px;
 }
 
+label {
+    color: white;
+    font-size: 30px;
+}
+
 a:active { background: rgba(0, 0, 0, 0); }
 
 @media only screen and (max-width: 1921px) {
@@ -149,6 +157,33 @@ a:active { background: rgba(0, 0, 0, 0); }
     }
 }
 
+#leftSidebar {
+    background-color: rgba(221, 221, 221, 0);
+    float: left;
+    width: 500px;
+    margin-bottom: 0px;
+    height: 250px;
+    border: 2px solid rgb(255, 119, 65);
+
+}
+
+#tea {
+    background-color: rgba(221, 221, 221, 0);
+    float: left;
+    width: 500px;
+    margin-left: 0px;
+    height: 40px;
+    border: 2px solid rgb(255, 119, 65);
+}
+
+#main{
+    background-color: rgba(238, 238, 238, 0);
+    height: 305px;
+    margin-left: 520px;
+    margin-right: 2px;
+    border: 2px solid rgb(255, 119, 65);
+    word-wrap: break-word;
+}
 
 #back { 
     background: rgba(0, 0, 0, 0.384);
