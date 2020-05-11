@@ -11,8 +11,8 @@ aura = {1: 'красный',
         11: 'золотой'}
 
 
-def finding_aura(date):
-    summ = sum(map(int, str(date.year))) + sum(map(int, str(date.month))) + sum(map(int, str(date.day)))
+def finding_aura(year, month, day):
+    summ = sum(map(int, str(year))) + sum(map(int, str(month))) + sum(map(int, str(day)))
     while 11 < summ or summ < 0:
         summ = sum(map(int, str(summ)))
     return aura[summ]
@@ -32,8 +32,8 @@ zodiac = {'Овен': {'start': (3, 21), 'end': (4, 20)},
           'Рыбы': {'start': (2, 19), 'end': (3, 20)}}
 
 
-def finding_zodiac(date):
-    tuple_date = (date.month, date.day)
+def finding_zodiac(month, day):
+    tuple_date = (month, day)
     zod = 0
     for key, val in zodiac.items():
         if val['start'] <= tuple_date <= val['end']:

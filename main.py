@@ -1,13 +1,17 @@
 from flask import Flask, render_template, redirect, request
 from flask_login import LoginManager, login_user, current_user, login_required, logout_user
-from data.register import LoginForm, RegisterForm
 from data.finding_zodiac_aura import finding_aura, finding_zodiac
 from data import db_session
 from data.users import User
+import  sqlite3
 
 app = Flask(__name__)
 login_manager = LoginManager()
 login_manager.init_app(app)
+
+# подключение к БД
+con = sqlite3.connect("db/zodiac.db", timeout=10, isolation_level=None)
+cur = con.cursor()
 
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 
@@ -24,6 +28,102 @@ def profile():
 @app.route('/horoscope')
 def horoscope():
     return render_template('horoscope.html')
+
+
+@app.route('/horoscope/aries')
+def aries():
+    return render_template('sign.html', zodiac_sign='Овен',
+                           sign_info=(cur.execute(f"""SELECT info
+                                                      FROM zodiac_text
+                                                      WHERE name = 'Овен'""").fetchall())[0][0])
+
+
+@app.route('/horoscope/taurus')
+def taurus():
+    return render_template('sign.html', zodiac_sign='Телец',
+                           sign_info=(cur.execute(f"""SELECT info
+                                                      FROM zodiac_text
+                                                      WHERE name = 'Телец'""").fetchall())[0][0])
+
+
+@app.route('/horoscope/gemini')
+def gemini():
+    return render_template('sign.html', zodiac_sign='Близнецы',
+                           sign_info=(cur.execute(f"""SELECT info
+                                                      FROM zodiac_text
+                                                      WHERE name = 'Близнецы'""").fetchall())[0][0])
+
+
+@app.route('/horoscope/cancer')
+def cancer():
+    return render_template('sign.html', zodiac_sign='Рак',
+                           sign_info=(cur.execute(f"""SELECT info
+                                                      FROM zodiac_text
+                                                      WHERE name = 'Рак'""").fetchall())[0][0])
+
+
+@app.route('/horoscope/leo')
+def leo():
+    return render_template('sign.html', zodiac_sign='Лев',
+                           sign_info=(cur.execute(f"""SELECT info
+                                                      FROM zodiac_text
+                                                      WHERE name = 'Лев'""").fetchall())[0][0])
+
+
+@app.route('/horoscope/virgo')
+def virgo():
+    return render_template('sign.html', zodiac_sign='Дева',
+                           sign_info=(cur.execute(f"""SELECT info
+                                                      FROM zodiac_text
+                                                      WHERE name = 'Дева'""").fetchall())[0][0])
+
+
+@app.route('/horoscope/libra')
+def libra():
+    return render_template('sign.html', zodiac_sign='Весы',
+                           sign_info=(cur.execute(f"""SELECT info
+                                                      FROM zodiac_text
+                                                      WHERE name = 'Весы'""").fetchall())[0][0])
+
+
+@app.route('/horoscope/scorpio')
+def scorpio():
+    return render_template('sign.html', zodiac_sign='Скорпион',
+                           sign_info=(cur.execute(f"""SELECT info
+                                                      FROM zodiac_text
+                                                      WHERE name = 'Скорпион'""").fetchall())[0][0])
+
+
+@app.route('/horoscope/sagittarius')
+def sagittarius():
+    return render_template('sign.html', zodiac_sign='Стрелец',
+                           sign_info=(cur.execute(f"""SELECT info
+                                                      FROM zodiac_text
+                                                      WHERE name = 'Стрелец'""").fetchall())[0][0])
+
+
+@app.route('/horoscope/capricorn')
+def capricorn():
+    return render_template('sign.html', zodiac_sign='Козерог',
+                           sign_info=(cur.execute(f"""SELECT info
+                                                      FROM zodiac_text
+                                                      WHERE name = 'Козерог'""").fetchall())[0][0])
+
+
+@app.route('/horoscope/aquarius')
+def aquarius():
+    return render_template('sign.html', zodiac_sign='Водолей',
+                           sign_info=(cur.execute(f"""SELECT info
+                                                      FROM zodiac_text
+                                                      WHERE name = 'Водолей'""").fetchall())[0][0])
+
+
+@app.route('/horoscope/pisces')
+def pisces():
+    return render_template('sign.html', zodiac_sign='Рыбы',
+                           sign_info=(cur.execute(f"""SELECT info
+                                                      FROM zodiac_text
+                                                      WHERE name = 'Рыбы'""").fetchall())[0][0])
 
 
 @app.route('/aura')
@@ -88,29 +188,34 @@ def login():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    form = RegisterForm()
-    if form.validate_on_submit():
-        if form.password.data != form.password_again.data:
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
+        password_repeat = request.form.get('password_repeat')
+        name = request.form.get('name')
+        birth_day = request.form.get('day')
+        birth_month = request.form.get('month')
+        birth_year = request.form.get('year')
+        if password != password_repeat:
             return render_template('register.html', title='Регистрация',
-                                   form=form,
-                                   message="Пароли не совпадают")
+                                   error="Пароли не совпадают")
         session = db_session.create_session()
-        if session.query(User).filter(User.email == form.email.data).first():
+        if session.query(User).filter(User.email == email).first():
             return render_template('register.html', title='Регистрация',
-                                   form=form,
-                                   message="Такой пользователь уже есть")
+                                   error="Такой пользователь уже есть")
         user = User(
-            name=form.name.data,
-            email=form.email.data,
-            birthday=form.birthday.data,
-            aura=finding_aura(form.birthday.data),
-            zodiac=finding_zodiac(form.birthday.data)
+            name=name,
+            email=email,
+            birthday=(birth_day, birth_month, birth_year),
+            aura=finding_aura(birth_year, birth_month, birth_day),
+            zodiac=finding_zodiac(birth_month, birth_day)
         )
-        user.set_password(form.password.data)
+        user.set_password(password)
         session.add(user)
         session.commit()
         return redirect('/')
-    return render_template('register.html', title='Регистрация', form=form)
+    else:
+        return render_template('register.html')
 
 
 if __name__ == '__main__':
