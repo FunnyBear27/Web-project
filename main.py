@@ -235,7 +235,7 @@ def tea():
     return render_template('tea.html')
 
 
-@app.route('/numero')
+@app.route('/numero', methods=['GET', 'POST'])
 def numero():
     if request.method == 'POST':  # this block is only entered when the form is submitted
         day = request.form.get('day')
