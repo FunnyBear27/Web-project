@@ -4,6 +4,7 @@ from data.finding_zodiac_aura import finding_aura, finding_zodiac, leap_year
 from data import db_session
 from data.users import User
 import sqlite3
+from datetime import datetime
 
 app = Flask(__name__)
 login_manager = LoginManager()
@@ -203,9 +204,9 @@ def register():
         password = request.form.get('password')
         password_repeat = request.form.get('password_repeat')
         name = request.form.get('name')
-        birth_day = request.form.get('day')
-        birth_month = request.form.get('month')
-        birth_year = request.form.get('year')
+        birth_day = int(request.form.get('day'))
+        birth_month = int(request.form.get('month'))
+        birth_year = int(request.form.get('year'))
         if password != password_repeat:
             return render_template('register.html', title='Регистрация',
                                    error="Пароли не совпадают")
@@ -213,6 +214,13 @@ def register():
         if session.query(User).filter(User.email == email).first():
             return render_template('register.html', title='Регистрация',
                                    error="Такой пользователь уже есть")
+        if ((birth_year > (datetime.now().year - 14) or (birth_month > 12 or birth_month < 1) or birth_day < 1 or
+           (birth_day > 31 and birth_month in [1, 3, 5, 7, 8, 10, 12]) or
+           (birth_day > 30 and birth_month in [4, 6, 9, 11]) or
+           (birth_month == 2 and leap_year(birth_year) and birth_day > 29) or
+           (birth_month == 2 and not leap_year(birth_year) and birth_day > 28))):
+            return render_template('register.html', title='Регистрация',
+                                   error="Неверная дата рождения")
         user = User(
             username=name,
             email=email,
