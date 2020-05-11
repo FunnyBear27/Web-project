@@ -15,18 +15,9 @@
 
 }
 
-#tea {
-    background-color: rgba(221, 221, 221, 0);
-    float: left;
-    width: 500px;
-    margin-left: 0px;
-    height: 40px;
-    border: 2px solid rgb(255, 119, 65);
-}
-
 #main{
     background-color: rgba(238, 238, 238, 0);
-    height: 305px;
+    height: 355px;
     margin-left: 520px;
     margin-right: 2px;
     border: 2px solid rgb(255, 119, 65);
@@ -59,11 +50,11 @@
         </table>
     {% else %}
       <div id="leftSidebar">
-        <p>Почта: {{ mail }}</p>
+        <p>Почта: {{ email }}</p>
         <p>Дата рождения: {{ birth_date }}</p>
-        <p>Цвет ауры: {{ Aura_color }}</p>
+        <p>Цвет ауры: {{ aura_color }}</p>
         <p>Знак зодиака: {{ zodiak_sign }}</p>
-      <div id="tea"><p>Чай вашего дня: {{ day_tea }}</p></div>
+        <button type="button" class="auth-button"><a href="/logout" class="auth">Выйти</a></button>
       </div>
       <div id="main"><p class="info">kdfvksdbnfnlgblnkfbklnlknklkknnklnlknlknlnlnknknlknlknklnklnknnlkjbsdfpvjandf;bspdofnbpodfnbpsjdnfbksndckbsk</p></div>
     {% endif %}
