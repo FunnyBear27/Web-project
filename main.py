@@ -210,7 +210,7 @@ def register():
             return render_template('register.html', title='Регистрация',
                                    error="Такой пользователь уже есть")
         user = User(
-            name=name,
+            username=name,
             email=email,
             birthday=(birth_day, birth_month, birth_year),
             aura=finding_aura(birth_year, birth_month, birth_day),
