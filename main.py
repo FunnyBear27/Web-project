@@ -212,7 +212,7 @@ def register():
         user = User(
             username=name,
             email=email,
-            birthday=(birth_day, birth_month, birth_year),
+            birthday=f'{str(birth_day)}/{str(birth_month)}/{str(birth_year)}',
             aura=finding_aura(birth_year, birth_month, birth_day),
             zodiac=finding_zodiac(birth_month, birth_day)
         )

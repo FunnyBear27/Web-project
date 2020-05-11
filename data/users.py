@@ -13,7 +13,7 @@ class User(SqlAlchemyBase):
     username = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     email = sqlalchemy.Column(sqlalchemy.String,
                               index=True, unique=True, nullable=False)
-    birthday = sqlalchemy.Column(sqlalchemy.Date, nullable=False)
+    birthday = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     aura = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     zodiac = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     hashed_password = sqlalchemy.Column(sqlalchemy.String, nullable=False)
