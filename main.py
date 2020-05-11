@@ -1,9 +1,9 @@
 from flask import Flask, render_template, redirect, request
 from flask_login import LoginManager, login_user, current_user, login_required, logout_user
-from data.finding_zodiac_aura import finding_aura, finding_zodiac
+from data.finding_zodiac_aura import finding_aura, finding_zodiac, leap_year
 from data import db_session
 from data.users import User
-import  sqlite3
+import sqlite3
 
 app = Flask(__name__)
 login_manager = LoginManager()
@@ -20,7 +20,6 @@ db_session.global_init('db/blogs.sqlite')
 
 @app.route('/')
 @app.route('/profile')
-@login_required
 def profile():
     return render_template('index.html')
 
@@ -149,11 +148,18 @@ def numero():
             res = day + month + year
         except ValueError:
             return render_template("number.html", error='Можно использовать только числа')
+        if ((month > 12 or month < 1) or day < 1 or (day > 31 and month in [1, 3, 5, 7, 8, 10, 12]) or
+            (day > 30 and month in [4, 6, 9, 11]) or (month == 2 and leap_year(year) and day > 29) or
+            (month == 2 and not leap_year(year) and day > 28)):
+            return render_template("number.html", error='Неверная дата')
         while True:
             if res not in range(1, 10) and res != 11 and res != 22:
                 res = sum([int(item) for item in list(str(res))])
             else:
-                return render_template("number.html", information=res)
+                return render_template("number.html",
+                                       information=(cur.execute(f"""SELECT info
+                                                                    FROM numero_text
+                                                                    WHERE name = {res}""").fetchall())[0][0])
     else:
         return render_template('number.html')
 
@@ -213,7 +219,7 @@ def register():
         user.set_password(password)
         session.add(user)
         session.commit()
-        return redirect('/')
+        return redirect('/profile')
     else:
         return render_template('register.html')
 

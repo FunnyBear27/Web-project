@@ -43,3 +43,10 @@ def finding_zodiac(month, day):
             zod = 'Козерог'
             break
     return zod
+
+
+def leap_year(year):
+    if year % 4 == 0:
+        return True
+    else:
+        return False
