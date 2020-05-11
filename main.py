@@ -22,7 +22,8 @@ db_session.global_init('db/blogs.sqlite')
 @app.route('/profile')
 def profile():
     if current_user.is_authenticated:
-        return render_template('index.html')
+        return render_template('index.html', email=current_user.email, birth_date=current_user.birthday,
+                               aura_color=current_user.aura, zodiak_sign=current_user.zodiac)
     else:
         return render_template('index.html')
 
