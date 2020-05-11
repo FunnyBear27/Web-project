@@ -21,7 +21,10 @@ db_session.global_init('db/blogs.sqlite')
 @app.route('/')
 @app.route('/profile')
 def profile():
-    return render_template('index.html')
+    if current_user.is_authenticated:
+        return render_template('index.html')
+    else:
+        return render_template('index.html')
 
 
 @app.route('/horoscope')
