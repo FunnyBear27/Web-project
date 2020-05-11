@@ -14,7 +14,7 @@ login_manager.init_app(app)
 con = sqlite3.connect("db/zodiac.db", timeout=10, isolation_level=None)
 cur = con.cursor()
 
-app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
+app.config['SECRET_KEY'] = 'dda3ddba-c9ea-4ead-9010-f43fbc15c6e3'
 
 db_session.global_init('db/blogs.sqlite')
 
@@ -132,7 +132,102 @@ def pisces():
 
 @app.route('/aura')
 def aura():
-    return render_template('aura.html')
+    if current_user.is_authenticated:
+        return render_template('aura.html',
+                               aura_info=(cur.execute(f"""SELECT info
+                                                          FROM aura_text
+                                                          WHERE color = {current_user.aura}""").fetchall())[0][0])
+    else:
+        return render_template('aura.html',
+                               aura_info='Вы не авторизованы, поэтому выберите цвет вручную')
+
+
+@app.route('/aura/red')
+def red():
+    return render_template('aura.html', color='Красный',
+                           aura_info=(cur.execute(f"""SELECT info
+                                                      FROM aura_text
+                                                      WHERE color = 'Красный'""").fetchall())[0][0])
+
+
+@app.route('/aura/yellow')
+def yellow():
+    return render_template('aura.html', color='Желтый',
+                           aura_info=(cur.execute(f"""SELECT info
+                                                      FROM aura_text
+                                                      WHERE color = 'Желтый'""").fetchall())[0][0])
+
+
+@app.route('/aura/orange')
+def orange():
+    return render_template('aura.html', color='Оранжевый',
+                           aura_info=(cur.execute(f"""SELECT info
+                                                      FROM aura_text
+                                                      WHERE color = 'Оранжевый'""").fetchall())[0][0])
+
+
+@app.route('/aura/green')
+def green():
+    return render_template('aura.html', color='Зеленый',
+                           aura_info=(cur.execute(f"""SELECT info
+                                                      FROM aura_text
+                                                      WHERE color = 'Зеленый'""").fetchall())[0][0])
+
+
+@app.route('/aura/blue')
+def blue():
+    return render_template('aura.html', color='Голубой',
+                           aura_info=(cur.execute(f"""SELECT info
+                                                      FROM aura_text
+                                                      WHERE color = 'Голубой'""").fetchall())[0][0])
+
+
+@app.route('/aura/darkblue')
+def darkblue():
+    return render_template('aura.html', color='Синий',
+                           aura_info=(cur.execute(f"""SELECT info
+                                                      FROM aura_text
+                                                      WHERE color = 'Синий'""").fetchall())[0][0])
+
+
+@app.route('/aura/violet')
+def violet():
+    return render_template('aura.html', color='Фиолетовый',
+                           aura_info=(cur.execute(f"""SELECT info
+                                                      FROM aura_text
+                                                      WHERE color = 'Фиолетовый'""").fetchall())[0][0])
+
+
+@app.route('/aura/pink')
+def pink():
+    return render_template('aura.html', color='Розовый',
+                           aura_info=(cur.execute(f"""SELECT info
+                                                      FROM aura_text
+                                                      WHERE color = 'Розовый'""").fetchall())[0][0])
+
+
+@app.route('/aura/bronze')
+def bronze():
+    return render_template('aura.html', color='Бронзовый',
+                           aura_info=(cur.execute(f"""SELECT info
+                                                      FROM aura_text
+                                                      WHERE color = 'Бронзовый'""").fetchall())[0][0])
+
+
+@app.route('/aura/silver')
+def silver():
+    return render_template('aura.html', color='Серебряный',
+                           aura_info=(cur.execute(f"""SELECT info
+                                                      FROM aura_text
+                                                      WHERE color = 'Серебряный'""").fetchall())[0][0])
+
+
+@app.route('/aura/gold')
+def gold():
+    return render_template('aura.html', color='Золотой',
+                           aura_info=(cur.execute(f"""SELECT info
+                                                      FROM aura_text
+                                                      WHERE color = 'Золотой'""").fetchall())[0][0])
 
 
 @app.route('/tea')
