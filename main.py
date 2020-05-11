@@ -17,8 +17,9 @@ def main():
 
     @app.route('/')
     @app.route('/profile')
+    @login_required
     def profile():
-        return
+        pass
 
     @app.route('/ether')
     def ether():
@@ -43,6 +44,12 @@ def main():
     @app.route('/dreams')
     def dreams():
         pass
+
+    @app.route('/logout')
+    @login_required
+    def logout():
+        logout_user()
+        return redirect("/login")
 
     @login_manager.user_loader
     def load_user(user_id):
