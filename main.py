@@ -46,10 +46,11 @@ def numero():
             res = day + month + year
         except ValueError:
             return render_template("number.html", error='Можно использовать только числа')
-        while res not in range(1, 10) or res != 11 or res != 22:
-            res = sum([int(item) for item in list(str(res))])
-            print(res)
-        return render_template("number.html", information=res)
+        while True:
+            if res not in range(1, 10) or res != 11 or res != 22:
+                res = sum([int(item) for item in list(str(res))])
+            else:
+                return render_template("number.html", information=res)
     else:
         return render_template('number.html')
 
@@ -72,10 +73,9 @@ def login():
         user = session.query(User).filter(User.email == email).first()
         if user and user.check_password(password):
             login_user(user, remember=remember_me)
-
         return render_template("/profile")
     else:
-        return render_template('author.html', error="Неверный логин или пароль")
+        return render_template('author.html')
 
 
 # @app.route('/register', methods=['GET', 'POST'])
