@@ -47,7 +47,7 @@ def numero():
         except ValueError:
             return render_template("number.html", error='Можно использовать только числа')
         while True:
-            if res not in range(1, 10) or res != 11 or res != 22:
+            if res not in range(1, 10) and res != 11 and res != 22:
                 res = sum([int(item) for item in list(str(res))])
             else:
                 return render_template("number.html", information=res)
