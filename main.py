@@ -245,7 +245,7 @@ def gold():
 @app.route('/tea')
 def tea():
     session = db_session.create_session()
-    teas = session.query(Teas).filter(Teas.is_private is not True)
+    teas = session.query(Teas).filter(Teas.is_private != True)
     if teas.count() == 0:
         return render_template('teas.html', title='Рецепты', recipes=teas, error='Рецептов нет')
     else:
