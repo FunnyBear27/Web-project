@@ -17,7 +17,7 @@ cur = con.cursor()
 
 app.config['SECRET_KEY'] = 'dda3ddba-c9ea-4ead-9010-f43fbc15c6e3'
 
-db_session.global_init('db/blogs.sqlite')
+db_session.global_init('db/info.sqlite')
 
 
 @app.route('/')
@@ -34,7 +34,7 @@ def profile():
 def my_tea():
     session = db_session.create_session()
     teas = session.query(Teas).filter(Teas.user_id == current_user.id)
-    return render_template('tea.html', title='Мои рецепты', recipes=teas, error='Рецептов нет')
+    return render_template('teas.html', title='Мои рецепты', recipes=teas, error='Рецептов нет')
 
 
 
@@ -243,7 +243,7 @@ def gold():
 def tea():
     session = db_session.create_session()
     teas = session.query(Teas).filter(Teas.is_private is not True)
-    return render_template('tea.html', title='Рецепты', recipes=teas, error='Рецептов нет')
+    return render_template('teas.html', title='Рецепты', recipes=teas, error='Рецептов нет')
 
 
 @app.route('/tea/make', methods=['GET', 'POST'])
@@ -320,7 +320,7 @@ def login():
         user = session.query(User).filter(User.email == email).first()
         if user and user.check_password(password):
             login_user(user, remember=remember_me)
-        return redirect("/profile")
+            return redirect("/profile")
     else:
         return render_template('author.html')
 
