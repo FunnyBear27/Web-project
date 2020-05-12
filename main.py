@@ -43,7 +43,7 @@ def my_tea():
 @app.route('/delete/<id>')
 def delete(id):
     session = db_session.create_session()
-    recipe = session.query(Teas).filter(current_user.id == id).first()
+    recipe = session.query(Teas).filter(Teas.id == id).first()
     session.delete(recipe)
     session.commit()
     return redirect('/profile/my_tea')
