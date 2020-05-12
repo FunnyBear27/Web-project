@@ -67,7 +67,7 @@ def edit(id):
 
         return redirect('/profile/my_tea')
     else:
-        return render_template('tea_form.html', title=recipe.title, text=recipe.text)
+        return render_template('tea_form.html', title=recipe.title, text=recipe.content)
 
 
 
