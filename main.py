@@ -3,6 +3,7 @@ from flask_login import LoginManager, login_user, current_user, login_required, 
 from data.finding_zodiac_aura import finding_aura, finding_zodiac, leap_year
 from data import db_session
 from data.users import User
+from data.teas import Teas
 import sqlite3
 from datetime import datetime
 
@@ -232,7 +233,31 @@ def gold():
 
 @app.route('/tea')
 def tea():
-    return render_template('tea.html')
+    session = db_session.create_session()
+    teas = session.query(Teas).filter(Teas.is_private is not True)
+    return render_template('tea.html', news=teas)
+
+
+@app.route('/tea/make', methods=['GET', 'POST'])
+def make_tea():
+    if request.method == 'POST':
+        session = db_session.create_session()
+        title = request.form.get('title')
+        text = request.form.get('text')
+        private = request.form.get('private')
+        tea = Teas(
+            title=title,
+            content=text,
+            created_date=datetime.now(),
+            is_private=private,
+            user_id=current_user.id
+            username=current_user.username
+        )
+        session.add(tea)
+        session.commit()
+        return redirect('/profile')
+    else:
+        return render_template('register.html')
 
 
 @app.route('/numero', methods=['GET', 'POST'])

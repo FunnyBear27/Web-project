@@ -18,4 +18,5 @@ class Teas(SqlAlchemyBase):
 
     user_id = sqlalchemy.Column(sqlalchemy.Integer,
                                 sqlalchemy.ForeignKey("users.id"))
+    username = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     user = orm.relation('User')
