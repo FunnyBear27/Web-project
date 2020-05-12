@@ -1,4 +1,3 @@
-
 aura = {1: 'Красный',
         2: 'Желтый',
         3: 'Оранжевый',
@@ -40,7 +39,8 @@ def finding_zodiac(month, day):
         if val['start'] <= tuple_date <= val['end']:
             zod = key
             break
-        elif (tuple_date[0] == 12 and tuple_date[1] >= val['start'][1]) or (tuple_date[0] == 1 and tuple_date[1] <= val['end'][1]):
+        elif (tuple_date[0] == 12 and tuple_date[1] >= val['start'][1]) or
+        (tuple_date[0] == 1 and tuple_date[1] <= val['end'][1]):
             zod = 'Козерог'
             break
     return zod
