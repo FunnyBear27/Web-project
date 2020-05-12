@@ -10,7 +10,7 @@
     float: left;
     width: 500px;
     margin-bottom: 0px;
-    height: 250px;
+    height: 355px;
     border: 2px solid rgb(255, 119, 65);
 
 }
@@ -50,13 +50,18 @@
         </table>
     {% else %}
       <div id="leftSidebar">
+        <table>
+          <tr>
+            <td><button type="button" id="back"><a href="/logout" class="back">Выйти</a></button></td>
+            <td><button type="button" id="back"><a href="/profile/my_tea" class="back">Мои чаи</a></button></td>
+         </tr>
+        </table>
         <p>Почта: {{ email }}</p>
         <p>Дата рождения: {{ birth_date }}</p>
         <p>Цвет ауры: {{ aura_color }}</p>
         <p>Знак зодиака: {{ zodiak_sign }}</p>
-        <button type="button" class="auth-button"><a href="/logout" class="auth">Выйти</a></button>
       </div>
-      <div id="main"><p class="info">kdfvksdbnfnlgblnkfbklnlknklkknnklnlknlknlnlnknknlknlknklnklnknnlkjbsdfpvjandf;bspdofnbpodfnbpsjdnfbksndckbsk</p></div>
+      <div id="main"><p class="info">Ничего не планируйте. Смело идите вперед навстречу переменам. Все необходимое человеку сегодня приходит само собой! Благодарите Жизнь даже за то, что вам на первый взгляд не нравится. Это время удачи. Настал момент обретения новых знакомств и установления дружеских отношений. Необходимо обращать внимание не на самих людей, и не на их слова, а на свою реакцию. Другими словами, наблюдайте за собой и своими эмоциями. Через познание себя перед человеком открываются новые возможности.</p></div>
     {% endif %}
    </main>
   <footer>

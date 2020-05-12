@@ -14,31 +14,29 @@
         <button type="button" class="upper-buttons"><a href="/tea" class="links">чай</a></button>
         <button type="button" class="upper-buttons"><a href="/numero" class="links">нумерология</a></button>
       </div>
+      <div id="hor" align="center"><p>{{ color }}</p></div>
    </header>
    <main role="main" class="container">
-    {% if current_user.is_authenticated %}
-     <h1 class="WhiteText">Характеристика цвета вашей ауры</h1>
      <p class="info">{{ aura_info }}</p>
-    {% endif %}
-     <div id="OtherColours">
+     <div id="OtherColours">a
       <table id=#colours>
         <tr>
             <td width="100"><p>Все цвета</p></td>     
-            <td width="100"><a href="https://www.google.ru" id="red-aura">Красный</a></td>
-            <td width="100"><a href="https://www.google.ru" id="yellow-aura">Желтый</a></td>
-            <td width="100"><a href="https://www.google.ru" id="orange-aura">Оранжевый</a></td>   
+            <td width="100"><a href="/aura/red" id="red-aura">Красный</a></td>
+            <td width="100"><a href="/aura/yellow" id="yellow-aura">Желтый</a></td>
+            <td width="100"><a href="/aura/orange" id="orange-aura">Оранжевый</a></td>   
         </tr>
         <tr>
-          <td width="100"><a href="https://www.google.ru" id="green-aura">Зеленый</a></td>     
-          <td width="100"><a href="https://www.google.ru" id="light-blue-aura">Голубой</a></td>
-          <td width="100"><a href="https://www.google.ru" id="blue-aura">Синий</a></td>
-          <td width="100"><a href="https://www.google.ru" id="violet-aura">Фиолетовый</a></td>
+          <td width="100"><a href="/aura/green" id="green-aura">Зеленый</a></td>     
+          <td width="100"><a href="/aura/blue" id="light-blue-aura">Голубой</a></td>
+          <td width="100"><a href="/aura/darkblue" id="blue-aura">Синий</a></td>
+          <td width="100"><a href="/aura/violet" id="violet-aura">Фиолетовый</a></td>
         </tr>
         <tr>
-          <td width="100"><a href="https://www.google.ru" id="pink-aura">Розовый</a></td>
-          <td width="100"><a href="https://www.google.ru" id="bronze-aura">Бронзовый</a></td>
-          <td width="100"><a href="https://www.google.ru" id="silver-aura">Серебряный</a></td>
-          <td width="100"><a href="https://www.google.ru" id="golden-aura">Золотой</a></td>
+          <td width="100"><a href="/aura/pink" id="pink-aura">Розовый</a></td>
+          <td width="100"><a href="/aura/bronze" id="bronze-aura">Бронзовый</a></td>
+          <td width="100"><a href="/aura/silver" id="silver-aura">Серебряный</a></td>
+          <td width="100"><a href="/aura/gold" id="golden-aura">Золотой</a></td>
         </tr>
     </table>
      </div>

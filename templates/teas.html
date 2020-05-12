@@ -14,11 +14,24 @@
         <button type="button" class="upper-buttons"><a href="/tea" class="links">чай</a></button>
         <button type="button" class="upper-buttons"><a href="/numero" class="links">нумерология</a></button>
       </div>
-      <div id="hor" align="center"><p>{{zodiak_sign}}</p></div>
-      <button type="button" id="back"><a href="/horoscope" class="back">< Назад</a></button>  
+      <div id="hor" align="center"><p>{{ title }}</p></div>
    </header>
+   {% if current_user.is_authenticated %}  
+   <button type="button" id="back"><a href="/tea/make" class="back">Добавить рецепт</a></button>  
+   {% endif %}
    <main role="main" class="container">
-       <p class="info">{{ sign_info }}</p>
+    {% for item in recipes %}
+    <div class="card">
+        <h2 class="white">{{item.title}}</h2>
+        <div>
+            {{item.content}}
+        </div>
+        <div>
+            Автор - {{item.user.username}}, Дата написания - {{item.created_date}}
+        </div>
+    </div>
+    {% endfor %}
+    <p class="errors">{{ error }}</p>
    </main>
   <footer>
     <div class='footer_style'>
