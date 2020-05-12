@@ -48,7 +48,6 @@ def delete(id):
     session.commit()
     return redirect('/profile/my_tea')
 
-
 @app.route('/editing/<id>', methods=['GET', 'POST'])
 def edit(id):
     if request.method == 'POST':
