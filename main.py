@@ -68,7 +68,6 @@ def edit(id):
         recipe.created_date = datetime.now()
         recipe.is_private = private
 
-        session.add(tea)
         session.commit()
 
         return redirect('/profile/my_tea')
