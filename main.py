@@ -53,7 +53,7 @@ def delete(id):
 def edit(id):
     if request.method == 'POST':
         session = db_session.create_session()
-        recipe = session.query(Teas).filter(current_user.id == id).first()
+        recipe = session.query(Teas).filter(Teas.id == id).first()
 
         title = request.form.get('title')
         text = request.form.get('text')
