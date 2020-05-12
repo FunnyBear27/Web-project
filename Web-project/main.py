@@ -40,6 +40,44 @@ def my_tea():
         return render_template('teas.html', title='Мои рецепты', recipes=teas)
 
 
+@app.route('/delete/<id>')
+def delete(id):
+    session = db_session.create_session()
+    recipe = session.query(Teas).filter(current_user.id == id).first()
+    session.delete(recipe)
+    session.commit()
+    return redirect('/profile/my_tea')
+
+
+@app.route('/editing/<id>', methods=['GET', 'POST'])
+def delete(id):
+    if request.method == 'POST':
+        session = db_session.create_session()
+        recipe = session.query(Teas).filter(current_user.id == id).first()
+
+        title = request.form.get('title')
+        text = request.form.get('text')
+        private = request.form.get('private')
+        if private == 'True':
+            private = True
+        else:
+            private = False
+
+        tea = Teas(
+            title=title,
+            content=text,
+            created_date=datetime.now(),
+            is_private=private,
+            user_id=current_user.id,
+            username=current_user.username
+        )
+        session.add(tea)
+        session.commit()
+        return redirect('/profile/my_tea')
+    else:
+        return render_template('tea_form.html')
+
+
 
 @app.route('/horoscope')
 def horoscope():
