@@ -92,8 +92,8 @@ input[type=submit]:active {
    <main role="main" class="container">
     <h1 align="center" class="WhiteText">Добавление рецепта чая</h1>
     <form action="" method="POST" align="center">
-        <input type="text" name="title" class="inp" placeholder="Введите название чая"><br>
-        <p id="recepe"><textarea name="text" placeholder="Напишите рецепт" class="inp"></textarea></p>
+        <input type="text" name="title" class="inp" placeholder="Введите название чая" value={{ title }}><br>
+        <p id="recepe"><textarea name="text" placeholder="Напишите рецепт" class="inp">{{ text }}</textarea></p>
         <input type="checkbox" class="custom-checkbox" id="private" name="private" value=True>
         <label for="private">Приватный рецепт</label><br>
         <input type="submit" value="Добавить рецепт"><br>
