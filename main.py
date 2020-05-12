@@ -321,6 +321,8 @@ def login():
         if user and user.check_password(password):
             login_user(user, remember=remember_me)
             return redirect("/profile")
+        return render_template('author.html',
+                               error="Неправильный логин или пароль")
     else:
         return render_template('author.html')
 
