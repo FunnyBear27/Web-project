@@ -50,7 +50,7 @@ def delete(id):
 
 
 @app.route('/editing/<id>', methods=['GET', 'POST'])
-def delete(id):
+def edit(id):
     if request.method == 'POST':
         session = db_session.create_session()
         recipe = session.query(Teas).filter(current_user.id == id).first()
@@ -63,16 +63,14 @@ def delete(id):
         else:
             private = False
 
-        tea = Teas(
-            title=title,
-            content=text,
-            created_date=datetime.now(),
-            is_private=private,
-            user_id=current_user.id,
-            username=current_user.username
-        )
+        recipe.title = title
+        recipe.content = text
+        recipe.created_date = datetime.now()
+        recipe.is_private = private
+
         session.add(tea)
         session.commit()
+
         return redirect('/profile/my_tea')
     else:
         return render_template('tea_form.html')
