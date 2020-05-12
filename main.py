@@ -30,6 +30,17 @@ def profile():
         return render_template('index.html')
 
 
+@app.route('/profile/my_tea')
+def my_tea():
+    session = db_session.create_session()
+    teas = session.query(Teas).filter(Teas.user_id == current_user.id)
+    if bool(teas) is True:
+        return render_template('tea.html', title='Мои рецепты', recipes=teas)
+    else:
+        return render_template('tea.html', title='Мои рецепты', error='Рецептов нет')
+
+
+
 @app.route('/horoscope')
 def horoscope():
     return render_template('horoscope.html')
@@ -235,7 +246,10 @@ def gold():
 def tea():
     session = db_session.create_session()
     teas = session.query(Teas).filter(Teas.is_private is not True)
-    return render_template('tea.html', news=teas)
+    if bool(teas) is True:
+        return render_template('tea.html', title='Рецепты', recipes=teas)
+    else:
+        return render_template('tea.html', title='Рецепты', error='Рецептов нет')
 
 
 @app.route('/tea/make', methods=['GET', 'POST'])
@@ -250,14 +264,14 @@ def make_tea():
             content=text,
             created_date=datetime.now(),
             is_private=private,
-            user_id=current_user.id
+            user_id=current_user.id,
             username=current_user.username
         )
         session.add(tea)
         session.commit()
-        return redirect('/profile')
+        return redirect('/tea')
     else:
-        return render_template('register.html')
+        return render_template('tea_form.html')
 
 
 @app.route('/numero', methods=['GET', 'POST'])
@@ -274,8 +288,8 @@ def numero():
         except ValueError:
             return render_template("number.html", error='Можно использовать только числа')
         if ((month > 12 or month < 1) or day < 1 or (day > 31 and month in [1, 3, 5, 7, 8, 10, 12]) or
-            (day > 30 and month in [4, 6, 9, 11]) or (month == 2 and leap_year(year) and day > 29) or
-            (month == 2 and not leap_year(year) and day > 28)):
+           (day > 30 and month in [4, 6, 9, 11]) or (month == 2 and leap_year(year) and day > 29) or
+           (month == 2 and not leap_year(year) and day > 28)):
             return render_template("number.html", error='Неверная дата')
         while True:
             if res not in range(1, 10) and res != 11 and res != 22:
