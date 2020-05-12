@@ -35,10 +35,38 @@ def my_tea():
     session = db_session.create_session()
     teas = session.query(Teas).filter(Teas.user_id == current_user.id)
     if teas.count() == 0:
-        return render_template('teas.html', title='Мои рецепты', recipes=teas, error='Рецептов нет')
+        return render_template('my_teas.html', title='Мои рецепты', recipes=teas, error='Рецептов нет')
     else:
-        return render_template('teas.html', title='Мои рецепты', recipes=teas)
+        return render_template('my_teas.html', title='Мои рецепты', recipes=teas)
 
+@app.route('/news_delete/<id>')
+def delete(id):
+    session = db_session.create_session()
+    recipe = session.query(Teas).filter(Teas.id == id).first()
+    session.delete(recipe)
+    session.commit()
+    return redirect('/profile/my_tea')
+
+
+@app.route('/news/<id>', methods=['GET', 'POST'])
+def edit(id):
+    session = db_session.create_session()
+    recipe = session.query(Teas).filter(Teas.id == id).first()
+
+    title = request.form.get('title')
+    text = request.form.get('text')
+
+    if request.method == 'POST':
+
+        recipe.title = title
+        recipe.content = text
+        recipe.created_date = datetime.now()
+
+        session.commit()
+
+        return redirect('/profile/my_tea')
+    else:
+        return render_template('tea_form.html', title=recipe.title, text=recipe.content)
 
 
 @app.route('/horoscope')
