@@ -8,19 +8,20 @@ from data.teas import Teas
 import sqlite3
 from datetime import datetime
 
+# создание приложения
 app = Flask(__name__)
 login_manager = LoginManager()
 login_manager.init_app(app)
 
+app.config['SECRET_KEY'] = 'dda3ddba-c9ea-4ead-9010-f43fbc15c6e3'
 # подключение к БД
 con = sqlite3.connect("db/zodiac.db", check_same_thread=False)
 cur = con.cursor()
 
-app.config['SECRET_KEY'] = 'dda3ddba-c9ea-4ead-9010-f43fbc15c6e3'
-
 db_session.global_init('db/info.sqlite')
 
 
+# страница пользователя
 @app.route('/')
 @app.route('/profile')
 def profile():
@@ -33,6 +34,7 @@ def profile():
         return render_template('index.html')
 
 
+# чаи данного пользователя
 @app.route('/profile/my_tea')
 def my_tea():
     session = db_session.create_session()
@@ -45,6 +47,7 @@ def my_tea():
                                recipes=teas)
 
 
+# удаление рецепта
 @app.route('/news_delete/<id>')
 def delete(id):
     session = db_session.create_session()
@@ -54,6 +57,7 @@ def delete(id):
     return redirect('/profile/my_tea')
 
 
+# редактирование рецепта
 @app.route('/news/<id>', methods=['GET', 'POST'])
 def edit(id):
     session = db_session.create_session()
@@ -76,6 +80,7 @@ def edit(id):
                                text=recipe.content)
 
 
+# страницы гороскопов
 @app.route('/horoscope')
 def horoscope():
     return render_template('horoscope.html')
@@ -177,6 +182,7 @@ def pisces():
                                     WHERE name = 'Рыбы'""").fetchall())[0][0])
 
 
+# страницы ауры
 @app.route('/aura')
 def aura():
     if current_user.is_authenticated:
@@ -277,6 +283,7 @@ def gold():
                             WHERE color = 'Золотой'""").fetchall())[0][0])
 
 
+# страница с чаями
 @app.route('/tea')
 def tea():
     session = db_session.create_session()
@@ -288,6 +295,7 @@ def tea():
         return render_template('teas.html', title='Рецепты', recipes=teas)
 
 
+# создание рецептов
 @app.route('/tea/make', methods=['GET', 'POST'])
 def make_tea():
     if request.method == 'POST':
@@ -314,6 +322,7 @@ def make_tea():
         return render_template('tea_form.html')
 
 
+# нумерология
 @app.route('/numero', methods=['GET', 'POST'])
 def numero():
     if request.method == 'POST':
@@ -346,6 +355,7 @@ def numero():
         return render_template('number.html')
 
 
+# выход из аккаунта
 @app.route('/logout')
 @login_required
 def logout():
@@ -359,6 +369,7 @@ def load_user(user_id):
     return session.query(User).get(user_id)
 
 
+# авторизация
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -376,6 +387,7 @@ def login():
         return render_template('author.html')
 
 
+# регистрация
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':

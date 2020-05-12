@@ -11,6 +11,7 @@ aura = {1: 'Красный',
         11: 'Золотой'}
 
 
+# определение ауры
 def finding_aura(year, month, day):
     summ = sum(map(int, str(year))) + sum(map(int, str(month))) + sum(map(int, str(day)))
     while 11 < summ or summ < 0:
@@ -32,6 +33,7 @@ zodiac = {'Овен': {'start': (3, 21), 'end': (4, 20)},
           'Рыбы': {'start': (2, 19), 'end': (3, 20)}}
 
 
+# определение зодиака
 def finding_zodiac(month, day):
     tuple_date = (int(month), int(day))
     zod = 0
@@ -39,13 +41,14 @@ def finding_zodiac(month, day):
         if val['start'] <= tuple_date <= val['end']:
             zod = key
             break
-        elif (tuple_date[0] == 12 and tuple_date[1] >= val['start'][1]) or
-        (tuple_date[0] == 1 and tuple_date[1] <= val['end'][1]):
+        elif (tuple_date[0] == 12 and tuple_date[1] >= val['start'][1]) or\
+                (tuple_date[0] == 1 and tuple_date[1] <= val['end'][1]):
             zod = 'Козерог'
             break
     return zod
 
 
+# високосность
 def leap_year(year):
     if year % 4 == 0:
         return True
