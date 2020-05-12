@@ -51,28 +51,23 @@ def delete(id):
 
 @app.route('/editing/<id>', methods=['GET', 'POST'])
 def edit(id):
-    if request.method == 'POST':
-        session = db_session.create_session()
-        recipe = session.query(Teas).filter(Teas.id == id).first()
+    session = db_session.create_session()
+    recipe = session.query(Teas).filter(Teas.id == id).first()
 
-        title = request.form.get('title')
-        text = request.form.get('text')
-        private = request.form.get('private')
-        if private == 'True':
-            private = True
-        else:
-            private = False
+    title = request.form.get('title')
+    text = request.form.get('text')
+
+    if request.method == 'POST':
 
         recipe.title = title
         recipe.content = text
         recipe.created_date = datetime.now()
-        recipe.is_private = private
 
         session.commit()
 
         return redirect('/profile/my_tea')
     else:
-        return render_template('tea_form.html')
+        return render_template('tea_form.html', title=title, text=text)
 
 
 
