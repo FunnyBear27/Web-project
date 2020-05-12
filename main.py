@@ -259,6 +259,10 @@ def make_tea():
         title = request.form.get('title')
         text = request.form.get('text')
         private = request.form.get('private')
+        if private == 'True':
+            private = True
+        else:
+            private = False
         tea = Teas(
             title=title,
             content=text,
