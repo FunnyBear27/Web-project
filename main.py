@@ -34,7 +34,10 @@ def profile():
 def my_tea():
     session = db_session.create_session()
     teas = session.query(Teas).filter(Teas.user_id == current_user.id)
-    return render_template('teas.html', title='Мои рецепты', recipes=teas, error='Рецептов нет')
+    if teas.count() == 0:
+        return render_template('teas.html', title='Мои рецепты', recipes=teas, error='Рецептов нет')
+    else:
+        return render_template('teas.html', title='Мои рецепты', recipes=teas)
 
 
 
@@ -243,7 +246,10 @@ def gold():
 def tea():
     session = db_session.create_session()
     teas = session.query(Teas).filter(Teas.is_private is not True)
-    return render_template('teas.html', title='Рецепты', recipes=teas, error='Рецептов нет')
+    if teas.count() == 0:
+        return render_template('teas.html', title='Рецепты', recipes=teas, error='Рецептов нет')
+    else:
+        return render_template('teas.html', title='Рецепты', recipes=teas)
 
 
 @app.route('/tea/make', methods=['GET', 'POST'])
