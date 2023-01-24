@@ -13,7 +13,7 @@ app = Flask(__name__)
 login_manager = LoginManager()
 login_manager.init_app(app)
 
-app.config['SECRET_KEY'] = 'dda3ddba-c9ea-4ead-9010-f43fbc15c6e3'
+app.config['SECRET_KEY'] = ''
 # подключение к БД
 con = sqlite3.connect("db/zodiac.db", check_same_thread=False)
 cur = con.cursor()
